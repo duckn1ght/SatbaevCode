@@ -1,15 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="#" method="post">
-        <label for="image">image</label>
-        <input type="image" name="image" id="image">
-        <button type="submit">отправить</button>
-    </form>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./styles/sendphoto.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <main>
+            <div class="title">
+                <img src="src/Group.svg" alt="Logo" width="150px" />
+                <h1>Загрузка изображения</h1>
+            </div>
+
+            <div class="form-block">
+                <form id="uploadForm">
+                    <label for="fileInput" id="file-upload">Загрузить</label>
+                    <input
+                        type="file"
+                        id="fileInput"
+                        accept="image/*"
+                        style="display: none"
+                        required
+                    />
+                </form>
+                <img
+                    id="previewImage"
+                    alt="Preview"
+                    style="max-width: 300px; display: none; cursor: pointer"
+                />
+                <canvas id="canvas" style="display: none"></canvas>
+            </div>
+
+            <button class="btn" id="nextButton">Продолжить</button>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+        <script src="./scripts/sendphoto.js"></script>
+    </body>
 </html>
