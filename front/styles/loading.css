@@ -15,10 +15,9 @@ main {
   transform: translate(-50%, -50%);
 
   & > h1{
-    color: var(--font);
+    color: var(--blue);
     font-size: 2rem;
-    font-weight: 500;
-    text-shadow: 5px 5px 40px black;
+    font-weight: 800;
   }
   & > img{
     margin-top: 1.68rem;
@@ -33,34 +32,8 @@ main {
   margin-bottom: 6.25em;
 
   & > h2 {
-    color: var(--font);
+    color: var(--blue);
     font-size: 2rem;
     font-weight: 800;
-  }
-}
-
-@media(width < 600px) {
-  .sphere1 {
-    z-index: -1;
-    position: fixed;
-    opacity: 0.6;
-    height: calc(100vh * 0.5);
-    width: calc(100vh * 0.5);
-    border-radius: 50%;
-    position: relative;
-    background: linear-gradient(-50deg, var(--purple), var(--briht-purple));
-    display: inline-block;
-  }
-
-  .sphere2 {
-    z-index: -1;
-    position: fixed;
-    opacity: 0.4;
-    height: calc(100vh * 0.4);
-    width: calc(100vh * 0.4);
-    border-radius: 50%;
-    position: relative;
-    background: linear-gradient(100deg, var(--purple), var(--briht-purple));
-    display: inline-block;
   }
 }

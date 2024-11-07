@@ -24,7 +24,6 @@ main {
 
   & > h2 {
     color: var(--blue);
-    color: var(--font);
     font-size: 2rem; /*32*/
     font-weight: 800;
   }
@@ -32,10 +31,11 @@ main {
 
 .title_box {
   text-shadow: 0.1em 0.1em 12.5em black;
-  color: var(--font);
+  
 
   & > h1 {
     font-size: 1.5rem;
+    color: var(--blue);
     font-weight: 800;
   }
   & > h2 {
@@ -45,7 +45,7 @@ main {
 }
 
 #startBtn {
-  background-color: var(--purple);
+  background-color: var(--blue);
   font-size: 1.25rem; /*27*/
   margin-top: 1.35em;
   border-radius: 1em;
@@ -54,41 +54,12 @@ main {
   color: #fff;
 
   &:active {
-    box-shadow: 0em 1.8em 9.3em white;
-    background-color: var(--light-purple);
+    box-shadow: 0 0 4.3em var(--light-blue);
+    background-color: var(--light-blue);
   }
-  &:active {
-    box-shadow: 0em 1.8em 9.3em white;
-    background-color: var(--light-purple);
-  }
+
   &:hover {
-    box-shadow: 0em 1.8em 9.3em white;
-    background-color: var(--light-purple);
-  }
-}
-
-@media(width < 600px) {
-  .sphere1 {
-    z-index: -1;
-    position: fixed;
-    opacity: 0.6;
-    height: calc(100vh * 0.5);
-    width: calc(100vh * 0.5);
-    border-radius: 50%;
-    position: relative;
-    background: linear-gradient(-50deg, var(--purple), var(--briht-purple));
-    display: inline-block;
-  }
-
-  .sphere2 {
-    z-index: -1;
-    position: fixed;
-    opacity: 0.4;
-    height: calc(100vh * 0.4);
-    width: calc(100vh * 0.4);
-    border-radius: 50%;
-    position: relative;
-    background: linear-gradient(100deg, var(--purple), var(--briht-purple));
-    display: inline-block;
+    box-shadow: 0 0 4.3em var(--light-blue);
+    background-color: var(--light-blue);
   }
 }
