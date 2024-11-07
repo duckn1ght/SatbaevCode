@@ -8,8 +8,12 @@ video {
     width: 100%;
     height: auto;
     transform: scaleX(-1);
+    border-radius: 25px;
 }
 
+h1 {
+    color: #023785;
+}
 
 canvas {
     position: absolute;
