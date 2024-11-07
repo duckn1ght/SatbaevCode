@@ -1,6 +1,4 @@
-const urlAdress = "/api/upload"
-
-
+const urlAdress = "http://127.0.0.1:8000/upload";
 
 const warningText = document.getElementById("warning");
 const nextButton = document.getElementById("next");
@@ -65,30 +63,48 @@ async function setup() {
 }
 
 nextButton.onclick = () => {
+    event.preventDefault();
     const canvas = document.getElementById("overlay");
 
     const context = canvas.getContext("2d");
-    context.drawImage(document.getElementById("video"), 0, 0, canvas.width, canvas.height);
 
+    // Очистка канваса перед рисованием нового кадра
+    context.clearRect(0, 0, canvas.width, canvas.height);
 
-    const dataURL = canvas.toDataURL("image/png");
-    console.log(dataURL);
-    
+    context.drawImage(
+        document.getElementById("video"),
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    const dataURL = canvas.toDataURL("image/jpeg");
+    // console.log(dataURL);
+
     fetch(urlAdress, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            image: dataURL,
+            image_data: dataURL,
         }),
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log("Изображение отправлено на сервер:", data);
-        })
-        .catch((error) => {
-            console.error("Ошибка отправки изображения:", error);
+            // Преобразуем строку в валидный формат JSON
+            const formattedStr = data
+                .replace(/(\w+):/g, '"$1":') // Добавляем кавычки к ключам
+                .replace(/:\s*(\w+)/g, ':"$1"'); // Добавляем кавычки только к строковым значениям
+
+            try {
+                let jsonObject = JSON.parse(formattedStr);
+                console.log(jsonObject);
+                console.log(typeof jsonObject);
+            } catch (error) {
+                console.error("Ошибка при парсинге JSON:", error);
+            }
         });
 };
 
