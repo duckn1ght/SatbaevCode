@@ -29,7 +29,7 @@
   position: relative;
   font-size: 1.68rem;
   font-weight: 800;
-  padding: 0.22em;
+  padding: 0.22em 1em;
   top: -0.74em;
   left: 0;
   border-radius: 0.6em;
@@ -55,7 +55,7 @@
         color: var(--blue);
     }
     & > div{
-      font-size: 1.68rem;/*27*/
+        font-size: 1.68rem;/*27*/
         text-align: left;
         align-self: center;
         width: clamp(8em, 14.3em, 17.1em);
