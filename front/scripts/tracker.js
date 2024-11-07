@@ -101,7 +101,8 @@ nextButton.onclick = () => {
             try {
                 let jsonObject = JSON.parse(formattedStr);
                 console.log(jsonObject);
-                console.log(typeof jsonObject);
+                localStorage.setItem("imageBase64", dataURL);
+                localStorage.setItem("info", jsonObject);
             } catch (error) {
                 console.error("Ошибка при парсинге JSON:", error);
             }
