@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceSenc</title>
+    <link rel="icon" type="image/x-icon" href="src/Group.svg">
+    <link rel="stylesheet" href="styles/result.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head> 
+<body>
+    <div class="sphere1">
+    </div>
+    <main>
+        <div class="main_wrapper">
+            <div class="logo_box">
+                <img src="src/Group.svg" alt="Logo">
+                <h2 class=>FaceSense</h2>
+            </div>
+            <div id="name_table"></div>
+            <div class="video-container">
+                <!-- <p id="warning">Обнаружено больше одного лица!</p> -->
+                <video id="video" width="720" height="560" autoplay muted></video>
+                <canvas id="overlay"></canvas>
+            </div>
+            <div class="result_table">
+                <h2>Результат</h2>
+                <div id="result_item emotion">ю</div>
+                <div id="result_item age">ю</div>
+                <div id="result_item species">ю</div>
+            </div>
+        </div>
+    </main>
+    <div class="sphere2">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+    <script src="./scripts/app.js"></script>
+</body>
+</html>

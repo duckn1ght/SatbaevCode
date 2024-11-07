@@ -1,0 +1,101 @@
+@import url(setting.css);
+
+.main_wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.8em 0;
+  
+    & > h2 {
+      color: var(--blue);
+      color: var(--font);
+      font-size: 2rem; /*32*/
+      font-weight: 800;
+    }
+  }
+
+video {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    transform: scaleX(-1);
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.video-container {
+    position: relative;
+}
+
+.result_table{
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25em;
+    width: 100vw;
+    height: 45vh;
+    background-color: var(--briht-purple);
+    box-shadow: -0.25em 0.18em 2.5em black;
+    border-radius: 2em 2em 0 0;
+
+    & > h2{
+        font-size: 1.68rem; /*27*/
+        font-weight: 800;
+        text-shadow: 0.1em 0.1em 12.5em black;
+        color: var(--purple);
+    }
+    & > div{
+        text-align: left;
+        align-self: center;
+        width: clamp(13.7em, 24.2em, 29em);
+        padding: 10px;
+        margin: auto;
+        background-color: white;
+        border-radius: 1em;
+        border: 0.18em solid var(--purple);
+
+    }
+}
+
+@media(width < 600px) {
+    .sphere1 {
+      z-index: -1;
+      position: fixed;
+      opacity: 0.6;
+      height: calc(100vh * 0.5);
+      width: calc(100vh * 0.5);
+      border-radius: 50%;
+      position: relative;
+      background: linear-gradient(-50deg, var(--purple), var(--briht-purple));
+      display: inline-block;
+    }
+  
+    .sphere2 {
+      z-index: -1;
+      position: fixed;
+      opacity: 0.4;
+      height: calc(100vh * 0.4);
+      width: calc(100vh * 0.4);
+      border-radius: 50%;
+      position: relative;
+      background: linear-gradient(100deg, var(--purple), var(--briht-purple));
+      display: inline-block;
+    }
+  }
