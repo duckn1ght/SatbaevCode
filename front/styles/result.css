@@ -25,12 +25,23 @@
     }
   }
 
+.resultImg_box{
+  height: clamp(200px 250px 350px);
+  width: 45vw;
+  margin: auto;
+}
+
+#resultImg{
+ 
+  object-fit: contain;
+}
+
 #resulName{
   position: relative;
   font-size: 1.68rem;
   font-weight: 800;
   padding: 0.22em 1em;
-  top: -0.74em;
+  top: -0.04em;
   left: 0;
   border-radius: 0.6em;
   border: 0.2em solid var(--blue);
@@ -44,7 +55,7 @@
     align-items: flex-start;
     padding: 1.25em;
     width: 100vw;
-    height: 45vh;
+    height: 35vh;
     background-color: white;
     box-shadow: -0.25em 0.18em 2.5em black;
     border-radius: 2em 2em 0 0;
@@ -59,8 +70,9 @@
         text-align: left;
         align-self: center;
         width: clamp(8em, 14.3em, 17.1em);
+        padding: 0.11em;
         width: 388px;
-        margin: 10px 0;
+        margin: 0.37em 0;
         border-radius: 0.6em;
         border: 0.1em solid var(--blue);
     }
