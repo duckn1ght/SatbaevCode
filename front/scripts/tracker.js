@@ -1,51 +1,47 @@
-const nextButton = document.getElementById("next");
-const warningText = document.getElementById("warning");
-
 async function setup() {
     const model = await blazeface.load();
-    const video = document.getElementById("video");
+    const video = document.getElementById('video');
     const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
     video.srcObject = stream;
 
     video.onplaying = () => {
-        const canvas = document.getElementById("overlay");
-        canvas.width = video.width;
-        canvas.height = video.height;
-        const context = canvas.getContext("2d");
+        const canvas = document.getElementById('overlay');
+        const context = canvas.getContext('2d');
+        
+        // Устанавливаем размеры канваса в зависимости от видео
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
 
         async function detectFace() {
             const predictions = await model.estimateFaces(video);
             context.clearRect(0, 0, canvas.width, canvas.height);
 
-            if (predictions.length > 0) {
-                handleFaceDetected(predictions);
+            if (predictions.length > 1) {
+                document.getElementById('warning').style.display = 'block';
+                document.getElementById('next').style.visibility = 'hidden';
+            } else if (predictions.length === 1) {
+                document.getElementById('warning').style.display = 'none';
+                document.getElementById('next').style.visibility = 'visible';
             } else {
-                nextButton.style.display = "none";
+                document.getElementById('warning').style.display = 'none';
+                document.getElementById('next').style.visibility = 'hidden';
             }
 
-            predictions.forEach((prediction) => {
+            predictions.forEach(prediction => {
                 const start = prediction.topLeft;
                 const end = prediction.bottomRight;
-
-                // Зеркалим только координаты по оси X
-                const mirroredStartX = canvas.width - end[0]; // Зеркалим правую точку
-                const mirroredEndX = canvas.width - start[0]; // Зеркалим левую точку
-
-                // Вычисляем центр квадрата (по оси X зеркалим координаты)
-                const centerX = (mirroredStartX + mirroredEndX) / 2; // Центр по оси X
-                const centerY = (start[1] + end[1]) / 2; // Центр по оси Y
-
-                // Размер стороны квадрата — минимальный размер между шириной и высотой
-                const size = Math.min(
-                    mirroredEndX - mirroredStartX,
-                    end[1] - start[1]
-                );
+                const size = [end[0] - start[0], end[1] - start[1]];
 
                 // Рисуем квадрат
+                const centerX = (start[0] + end[0]) / 2;
+                const centerY = (start[1] + end[1]) / 2;
+
+                const rectSize = Math.min(size[0], size[1]); // Размер квадрата
+
                 context.beginPath();
-                context.rect(centerX - size, centerY - size / 2, size, size);
+                context.rect(centerX - rectSize / 2, centerY - rectSize / 2, rectSize, rectSize);
                 context.lineWidth = 2;
-                context.strokeStyle = "red";
+                context.strokeStyle = 'red';
                 context.stroke();
             });
 
@@ -54,23 +50,6 @@ async function setup() {
 
         detectFace();
     };
-}
-
-function handleFaceDetected(predictions) {
-    const numberOfFaces = predictions.length;
-    if (numberOfFaces > 1) {
-        warningText.style.display = "block";
-    } else {
-        warningText.style.display = "none";
-
-        nextButton.style.display = "block";
-    }
-    const message = `Найдено ${numberOfFaces} лицо(а)`;
-    console.log(message);
-}
-
-function nextButtonAction () {
-    
 }
 
 setup();
