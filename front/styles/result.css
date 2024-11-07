@@ -25,21 +25,16 @@
     }
   }
 
-video {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    transform: scaleX(-1);
-}
-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.video-container {
-    position: relative;
+#resulName{
+  position: relative;
+  font-size: 1.68rem;
+  font-weight: 800;
+  padding: 0.22em;
+  top: -0.74em;
+  left: 0;
+  border-radius: 0.6em;
+  border: 0.2em solid var(--blue);
+  
 }
 
 .result_table{
@@ -57,7 +52,6 @@ canvas {
     & > h2{
         font-size: 1.68rem; /*27*/
         font-weight: 800;
-        /* text-shadow: 0.1em 0.1em 12.5em black; */
         color: var(--blue);
     }
     & > div{
@@ -69,6 +63,5 @@ canvas {
         margin: 10px 0;
         border-radius: 0.6em;
         border: 0.1em solid var(--blue);
-
     }
 }

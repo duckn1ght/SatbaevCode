@@ -103,6 +103,8 @@ nextButton.onclick = () => {
                 console.log(jsonObject);
                 localStorage.setItem("imageBase64", dataURL);
                 localStorage.setItem("info", jsonObject);
+                window.location.href = "result.html"
+
             } catch (error) {
                 console.error("Ошибка при парсинге JSON:", error);
             }

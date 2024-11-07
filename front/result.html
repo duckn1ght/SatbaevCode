@@ -17,22 +17,19 @@
                 <img src="src/Group.svg" alt="Logo">
                 <h2 class=>FaceSense</h2>
             </div>
-            <div id="name_table"></div>
-            <div class="video-container">
-                <!-- <p id="warning">Обнаружено больше одного лица!</p> -->
-                <video id="video" width="720" height="560" autoplay muted></video>
-                <canvas id="overlay"></canvas>
-            </div>
+            <img id="resultImg" src="" alt="">
+            <div id="resulName">NAME</div>
             <div class="result_table">
                 <h2>Результат</h2>
-                <div id="result_item emotion">ю</div>
-                <div id="result_item age">ю</div>
-                <div id="result_item species">ю</div>
+                <div id="emotion">ю</div>
+                <div id="age">ю</div>
+                <div id="species">ю</div>
             </div>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
-    <script src="./scripts/app.js"></script>
+    <script src="./scripts/tracker.js"></script>
+    <script src="./scripts/results.js"></script>
 </body>
 </html>
