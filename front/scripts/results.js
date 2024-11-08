@@ -1,7 +1,7 @@
 let imageUrl = localStorage.getItem("imageBase64");
 let userInfo = localStorage.getItem("info");
 let userInfojson = JSON.parse(userInfo);
-document.getElementById("resultImg").src = imageUrl;
+document.getElementById("resultImg").src = "src/1612298572_91-p-anime-peizazh-fon-fioletovii-138.png";
 console.log(userInfojson);
 
 document.getElementById("emotion").textContent = getEmotionInRussian(userInfojson.emotion);
